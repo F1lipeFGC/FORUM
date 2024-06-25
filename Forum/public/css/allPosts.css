@@ -1,43 +1,10 @@
 :root {
-    --masterball-purple-dark: #4F2C83;
-    --masterball-purple-light: #9B6BCC;
-}
+    --vermelho: #FF0000;
+    --bege: #F5F5DC;
+    --branco: #FFFFFF;
+    --preto: #000000;
+}   
 
-.card, .card-body{
-    background-color: var(--masterball-purple-light);
-    border-radius: 10px;
-    width: 400px;
-    height: 150px;
-}
-
-
-.modal-content{
-   
-    border-radius: 10px;
-    color: #fff;
-    background: linear-gradient(to bottom,var(--masterball-purple-dark) ,var(--masterball-purple-light) );
-}
-
-.fas:hover{
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.btn-edit, .btn-cancel{
-    background-color:  #6B46C1; 
-    color: #FFF;
-}
-
-.btn-edit:hover, .btn-cancel:hover{
-    background-color: var(--masterball-purple-dark);
-    color: #FFF;
-}
-.card{
-    border: none;
-}
-
-.card-title, .btn-close{
-    color: #FFF;
-}
 
 .containerAllPosts {
     padding: 2rem;
@@ -45,41 +12,32 @@
     width: 100%;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
    margin-bottom: 100px;
 }
 
+.texth2{
 
+    align-items: start;
+    text-align: start;
+}
 
 .titlePost{
     padding: 2rem;
     border-radius: 10px;
-    text-align: center;
+    text-align: start;
     display: flex;
-    justify-content: center;
+    justify-content:flex-start;
     align-items: center;
     
 }
+.textPost > p{
 
-.titlePost h1{
-    padding: 2rem;
-    width: 100%;
-    border-radius: 10px;
-    color: #fff;
-    padding-left: 100px;
-    padding-right: 100px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    margin-top: 30px;
-    background: linear-gradient(to bottom,var(--masterball-purple-dark) ,var(--masterball-purple-light) );
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   
+    justify-content: start;
+    text-align: start;
 }
-
+ 
 .user-list{
     padding: 2rem; 
     border-radius: 10px;
@@ -88,7 +46,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom,var(--masterball-purple-dark) ,var(--masterball-purple-light) );
+    background: var(--bege);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     margin-bottom: 60px;

@@ -1,11 +1,11 @@
 :root {
-    --masterball-purple-dark: #4F2C83;
-    --masterball-purple-light: #9B6BCC;
+    --vermelho: #FF0000;
+    --bege: #F5F5DC;
+    --branco: #FFFFFF;
+    --preto: #000000;
 }
 
-
 .signIn-container {
-    padding: 2rem;
     border-radius: 10px;
     max-width: 400px;
     width: 100%;
@@ -13,7 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 70vh;
     margin: 0 auto; /* Centraliza horizontalmente */
     
 }
@@ -26,13 +26,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom,var(--masterball-purple-dark) ,var(--masterball-purple-light) );
+    background: var(--branco) ;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 
 .signIn-title {
-    color: #FFF;
+    color: #000000;
     margin-bottom: 1.5rem;
 }
 
@@ -59,11 +59,11 @@
 
 .form-input:focus {
     outline: none;
-    border-color: #718096;
+    border-color: var(--vermelho);
 }
 
 .submit-button {
-    background-color: #6B46C1; 
+    background-color:var(--vermelho); 
     color: #fff;
     padding: 0.75rem;
     border: none;
@@ -74,7 +74,7 @@
 }
 
 .submit-button:hover {
-    background-color:var(--masterball-purple-dark);
+    background-color:var(--bege);
 }
 
 .error-message {
@@ -82,4 +82,11 @@
     font-size: 0.875rem;
     margin-top: 0.5rem;
     display: block;
+}
+
+.ImagemFundo{
+
+    background-image: url(../images/fundo.jpg);
+    
+
 }

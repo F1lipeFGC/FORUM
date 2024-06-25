@@ -21,7 +21,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-    <title> Fórum - Laravel </title>
+    <title> CodeDentegler - Laravel </title>
 </head>
 
 <body>
@@ -44,30 +44,28 @@
             </script>
         @endif
         <div class="navbar">
-            <i class="fa fa-bars" id="btn-navbar"></i>
-            <div class="titleWrapper">
-                <a href="{{ route('teste') }}">
-                    <h1 class="Title"><img class="NavbarIcon" src="{{ asset('images/masterIcon.ico') }}">MasterForum
-                    </h1>
-                </a>
+            <img class="Navbarlogo" src="{{ asset('images/logo.png') }}" id="btn-navbar">
+            <div class="nav-search">
+               <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" name="" id="" placeholder="Busque Topicos">
+               </div> 
             </div>
             @if (Auth::check())
-                <a href="{{ route('listUserById', [Auth::user()->id]) }}" class="nav-icon">
-                    <i class="fas fa-user-circle"></i>
-                    <p>Meu perfil</p>
-                </a>
-                <a href="logout" class="nav-icon">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <p>Sair</p>
-                </a>
+                <div class="NavEnter">
+                <a href="{{ route('listUserById', [Auth::user()->id]) }}" class="nav-icon">Meu perfil</a>
+                <a href="logout" class="nav-icon">Sair</a>
+            </div>
             @else
+            <div class="Nav-Login">
                 <a class="navbar-link" href="register">Cadastre-se</a>
                 <a class="navbar-link" href="login">Entrar</a>
+            </div>
             @endif
         </div>
         <div id="sidebar" class="sidebar">
             <div class="sidebar-header">
-                <span class="menu-text">Menu</span>
+            <img class="Navbarlogo" src="{{ asset('images/logo.png') }}">
                 <i class="fas fa-times" id="close-btn"></i>
             </div>
             <div class="sidebar-content">
@@ -114,25 +112,7 @@
 
     <footer class="footer">
         <div class="container">
-            <ul class="list-inline">
-                <li class="list-inline-item">
-                    <a href="https://www.linkedin.com/in/davi-ryan-konuma-lima-62b00221b/" target="_blank"
-                        rel="noopener noreferrer">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="https://github.com/DaviRKL" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="mailto:davirkl07@gmail.com">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </li>
-            </ul>
-            <p>&copy; 2024 Davi Ryan Konuma Lima</p>
+            <p>&copy; Filipe Fogaca Lopes</p>
         </div>
     </footer>
 

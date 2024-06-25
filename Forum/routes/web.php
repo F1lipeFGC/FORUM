@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 
     Route::put('/users/{id}/update', [UserController::class, 'updateUser'])->name('updateUser');
 
-    Route::get('/users/{id}/delete', [UserController::class, 'deleteUser'])->name('deleteUser');
+    Route::delete('/users/{id}/delete', [UserController::class, 'deleteUser'])->name('deleteUser');
 
     Route::get('/Posts/{id}', [PostController::class, 'listPostById'])->name('listPostById');
 

@@ -1,12 +1,12 @@
 :root {
-    --masterball-purple-dark: #4F2C83;
-    --masterball-purple-light: #9B6BCC;
-    --masterball-white: #FFFFFF;
-    --masterball-black: #000000;
+    --vermelho: #FF0000;
+    --bege: #F5F5DC;
+    --branco: #FFFFFF;
+    --preto: #000000;
 }
 
 h4{
-    color: var(--masterball-white);
+    color: var(---branco);
     padding-bottom: 15px;
 }
 
@@ -33,10 +33,16 @@ body, main {
     color: #fff;
     text-decoration: none;
     padding: 5px;
+    margin-left: 50px;
 
 }
 .sidebar-content .sidebar-user{
     display: none;
+
+}
+
+.sidebar-content{
+    margin-top: 20px;
 }
 
 .navbar .nav-icon {
@@ -47,15 +53,27 @@ body, main {
 }
 
 
-.navbar .nav-icon p {
-    margin-top: 60px;
-    font-size: 12px; 
-    margin-right: 20px;
+.navbar > .NavEnter{
+
+    display: flex;
+}
+
+.navbar > .NavEnter>.nav-icon  {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+    margin-left: 50px;
+    display: flex;
+
 }
 
 
 @media (max-width: 1023px){
     .navbar-link, .nav-icon{
+        display: none;
+    }
+
+    .navbar > .NavEnter{
         display: none;
     }
 
@@ -71,22 +89,27 @@ body, main {
 .navbar-link:hover{
     color: #fff;
     transform: scale(1.1);
-    background-color: #9B6BCC;
+    background-color: #920000;
     border-radius: 10px;
 }
 
 .NavbarIcon{
     height: 60PX;
+    padding-bottom: 40px;
+}
+.Navbarlogo{
+    height: 75px;
+    
 }
 
 .sidebar {
     display: flex;
     height: 100%;
-    width: 300px;
+    width: 260px;
     position: fixed;
     top: 0;
     left: -300px;
-    background: linear-gradient(to bottom,var(--masterball-purple-dark) ,var(--masterball-purple-light) );
+    background: var(--vermelho) ;
     overflow-x: hidden;
     transition: left 0.5s;
     padding-top: 60px;
@@ -102,7 +125,7 @@ body, main {
     justify-content: space-between;
     align-items: center;
     position: absolute;
-    top: 20px;
+    top: 0px;
     left: 25px;
     right: 25px;
     font-size: 24px;
@@ -112,13 +135,13 @@ body, main {
 .sidebar a {
     padding: 10px 15px;
     text-decoration: none;
-    font-size: 20px;
-    color: var(--masterball-white);
+    font-size: 13px;
+    color: var(--branco);
     display: block;
     transition: 0.3s;
     border-radius: 10px;
     margin: 15px;
-    background-color: var(--masterball-purple-light);
+    background-color: var(--vermelho);
     width: 100%;
 }
 
@@ -130,31 +153,58 @@ body, main {
 
 .menu-text {
     flex: 1; 
+
 }
 
 .navbar {
-    height: 100px;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(to bottom,var(--masterball-purple-dark) ,var(--masterball-purple-light) );
+    background: var(--vermelho) ;
     box-shadow: 0 0 20px 3px;
     padding: 0 20px;
+    
 }
+
 
 .navbar i {
     font-size: 30px;
-    color: var(--masterball-white);
+    color: var(--branco);
     cursor: pointer;
 }
 
+.nav-search > .search input {
+    width: 800px;
+    padding: 6px;
+    background: #E8E8E8;
+    border: none;
+    outline: none;
+    padding-left: 60px;
+    color: #808080;
+    border-radius: 5px;
+}
+
+.nav-search > .search {
+    position: relative;
+}
+
+.nav-search > .search > i {
+    position: absolute;
+    top: 50%;
+    font-size: 20px;
+    transform: translateY(-50%);
+    background: #E8E8E8;
+    margin-left: 8px;
+    color: #808080;
+}
 .titleWrapper {
     flex: 1;
     text-align: center;
 }
 
 .Title {
-    color: var(--masterball-white);
+    color: var(--branco);
     font-size: 2rem;
     margin-top: 20px;
 }
@@ -168,7 +218,7 @@ body, main {
     top: 32px; 
     right: 32px;
     width: 40px; 
-    color: var(--masterball-white); 
+    color: var(--branco); 
     cursor: pointer;
 }
 .fa-user-circle{
@@ -176,22 +226,28 @@ body, main {
     top: 32px; 
     right: 96px;
     width: 40px; 
-    color: var(--masterball-white); 
+    color: var(--branco); 
     cursor: pointer;
 }
 
 p, label, h2 {
-    color: var(--masterball-white);
+    color: var(---branco);
 }
 
 footer {
-    background: linear-gradient(to bottom, var(--masterball-purple-light), var(--masterball-purple-dark)  );
-    color: var(--masterball-white);
-    padding: 1rem 0;
+    background:  var(--vermelho)  ;
+    color: var(--branco);
+    padding: 15 0;
+    width: 100vw;
+    position:fixed;
+    bottom: 0;
+    align-items: center;
+
 }
 
 footer .container {
     text-align: center;
+
 }
 
 footer .list-inline {
@@ -207,7 +263,7 @@ footer .list-inline-item {
 }
 
 footer a {
-    color: var(--masterball-white);
+    color: var(--branco);
     text-decoration: none;
     font-size: 1.5rem;
 }
@@ -217,6 +273,8 @@ footer a:hover {
 }
 
 footer p {
-    margin-top: 1rem;
-    margin-bottom: 0;
+
+margin-top: 10px;
+
 }
+
