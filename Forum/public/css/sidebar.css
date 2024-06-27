@@ -53,9 +53,13 @@ body, main {
 }
 
 
-.navbar > .NavEnter{
+.navbar > .Nav-Login >.Nav-Enter{
 
-    display: flex;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+    margin-left: 50px;
+
 }
 
 .navbar > .NavEnter>.nav-icon  {

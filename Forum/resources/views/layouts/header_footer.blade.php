@@ -51,12 +51,23 @@
                     <input type="search" name="" id="" placeholder="Busque Topicos">
                </div> 
             </div>
+
             @if (Auth::check())
-                <div class="NavEnter">
-                <a href="{{ route('listUserById', [Auth::user()->id]) }}" class="nav-icon">Meu perfil</a>
-                <a href="logout" class="nav-icon">Sair</a>
+            <div class="Nav-Login">
+                <a class="Nav-Enter" href="{{ route('listUserById', [Auth::user()->id]) }}" class="sidebar-user">
+                            Meu Perfil
+                </a>
+                <a class="Nav-Enter" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="sidebar-user">
+                            Sair
+                </a>
+                        <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
+                        @csrf
+
+                        </form>
             </div>
+
             @else
+
             <div class="Nav-Login">
                 <a class="navbar-link" href="register">Cadastre-se</a>
                 <a class="navbar-link" href="login">Entrar</a>
@@ -86,16 +97,17 @@
                 <a href="#collapseTag" data-bs-toggle="collapse"><i class="fa-solid fa-hashtag"></i> Tags</a>
                 <a class="collapse" id="collapseTag"><i class="fa-solid fa-hashtag"></i> Ver Tags</a>
                 <a class="collapse" id="collapseTag"><i class="fa-solid fa-plus"></i> Criar Tags</a>
-
+                
                 @if (Auth::check())
-                    <a href='{{ route('listUserById', [Auth::user()->id]) }}' class="sidebar-user"><i
-                            class="fa-solid fa-id-card"></i>
+                <a href="{{ route('listUserById', [Auth::user()->id]) }}" class="sidebar-user">
                         Meu Perfil
                     </a>
-                    <a href='logout' class="sidebar-user">
-
-                        <i class="fa-solid fa-right-from-bracket"></i> Sair
+                    <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="sidebar-user">
+                        Sair
                     </a>
+                    <form id="logout-form" action="{{route('logout')}}" method="post" style="display: none;">
+                        @csrf
+                    </form>
                 @else
                     <a class="sidebar-user" href="register">Cadastre-se</a>
                     <a class="sidebar-user"href="login">Entrar</a>

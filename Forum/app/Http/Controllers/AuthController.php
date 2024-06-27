@@ -30,7 +30,7 @@ class AuthController extends Controller
         return view('welcome');
      }
 
-    public function logout() {
+    public function logout(Request $request) {
        Auth::logout();
        return redirect()->route('teste')->with('message-sucess', 'Logout realizado com sucesso');
     }

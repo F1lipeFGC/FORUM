@@ -20,7 +20,7 @@ Route::match(['get', 'post'], '/login', [AuthController::class, 'login'])->name(
 
 Route::match(['get', 'post'], '/register', [UserController::class, 'register'])->name('register');
 
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::Post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
 
