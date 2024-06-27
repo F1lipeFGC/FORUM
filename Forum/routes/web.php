@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TopicController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +16,7 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [AuthController::class, 'teste'])->name('teste');
+Route::get('/teste', [AuthController::class, 'teste'])->name('teste');
 
 Route::match(['get', 'post'], '/login', [AuthController::class, 'login'])->name('login');
 
@@ -38,7 +40,19 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/Posts/{id}/delete', [PostController::class, 'deletePost'])->name('deletePost');
 
-    Route::match(['get', 'post'], '/createPost', [PostController::class, 'createPost'])->name('createPost');
+    Route::get('/posts/visualizar', [PostController::class, 'VizuPost'])->name('VizuPost');
 
-    Route::get('/Posts', [PostController::class, 'listAllPosts'])->name('listAllPosts');
+    Route::get('/createPost', [PostController::class, 'createPost'])->name('createPost');
+
+    Route::get('/Topics', [TopicController::class, 'TopicsAll'])->name('TopicsAll');
+
+    Route::get('/Topics/{id}', [TopicController::class, 'listTopicById'])->name('listTopicById');
+
+    Route::post('/Topics', [TopicController::class, 'createTopic'])->name('createTopic');
+
+    Route::put('/Topics/{id}/update', [TopicController::class, 'updateTopic'])->name('updateTopic');
+
+    Route::get('/Topics/{id}/edit', [TopicController::class, 'editTopic'])->name('editTopic');
+    
+    Route::get('/Topics/{id}/delete', [TopicController::class, 'deleteTopic'])->name('deleteTopic');
 });

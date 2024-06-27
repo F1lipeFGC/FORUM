@@ -84,14 +84,14 @@
                 <a href="{{ route('listAllUsers') }}"><i class="fa-solid fa-users"></i> Lista de usuários</a>
 
                 <a href="#collapsePost" data-bs-toggle="collapse"><i class="fa-solid fa-comments"></i> Posts</a>
-                <a class="collapse" id="collapsePost" href="{{ route('listAllPosts') }}"><i
+                <a class="collapse" id="collapsePost" href="{{ route('VizuPost') }}"><i
                         class="fa-solid fa-comments"></i> Ver Post</a>
                 <a class="collapse" id="collapsePost" href="{{ route('createPost') }}"><i class="fa-solid fa-plus"></i>
                     Criar Posts</a>
 
                 <a data-bs-toggle="collapse" href="#collapseTopicos"><i class="fa-solid fa-arrow-trend-up"></i>
                     Topicos</a>
-                <a class="collapse" id="collapseTopicos"><i class="fa-solid fa-arrow-trend-up"></i> Ver Topicos</a>
+                <a class="collapse" id="collapseTopicos" href="{{ route('TopicsAll')}}"><i class="fa-solid fa-arrow-trend-up"></i> Ver Topicos</a>
                 <a class="collapse" id="collapseTopicos"><i class="fa-solid fa-plus"></i> Criar Topicos</a>
 
                 <a href="#collapseTag" data-bs-toggle="collapse"><i class="fa-solid fa-hashtag"></i> Tags</a>

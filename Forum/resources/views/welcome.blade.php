@@ -3,21 +3,43 @@
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
-    <div class="container">
         
-            <div class="text">
-                 <h1 class="TituloWelcome">Ola Bem Vindo ao Code Dentengler</h1> 
-                <h1 class="TituloWelcome">Seja Bem vindo ao MasterForum!</h1>
-                <p>Dedicado a todos os entusiastas, estudantes, profissionais e curiosos da área de tecnologia que buscam compartilhar conhecimentos, resolver problemas e aprender juntos.
+    <div class="container">
+        <div class="titlePost">
+            <h1>Feed</h1>
+        </div>
+        <div class="containerAllPosts">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="user-list">
+                        <div class="textPost">
+                            <div class="texth2">
+                                <h2>Josias Johnson</h2>
+                            </div>
 
-                O que você pode fazer aqui:
-                Postar Dúvidas: Tem uma questão de programação que está te dando dor de cabeça? Poste sua dúvida! Nossa comunidade está aqui para ajudar. Não se esqueça de fornecer o máximo de detalhes possível para que possamos entender melhor o seu problema e oferecer soluções eficazes.
-                Compartilhar Conhecimento: Sabe a resposta para uma pergunta? Compartilhe! Sua experiência e conhecimento são valiosos para outros membros da comunidade. Ajudar os outros também é uma excelente maneira de reforçar o seu próprio aprendizado.
-                Discutir Tendências e Novidades: Quer falar sobre as últimas tendências em desenvolvimento web, novas linguagens de programação, ou discutir boas práticas de código? Este é o lugar! Inicie ou participe de discussões que ajudem a todos a se manterem atualizados.
-                Projetos e Colaborações: Tem um projeto interessante e precisa de colaboradores? Ou quer contribuir para o projeto de alguém? Utilize nosso espaço para encontrar parceiros de projeto, compartilhar ideias e desenvolver juntos. </p>
+                            <h4>Css question</h4>
+                            <p>Estou enfrentando um problema relacionado à especificidade dos seletores CSS em meu projeto e gostaria de uma ajuda para entender o que estou fazendo de errado. 
+                            Tenho várias regras CSS que parecem estar em conflito e não estou conseguindo fazer com que o estilo desejado seja aplicado corretamente.</p>
+                            <p>Tags: #tag1, #tag2, #tag3, #tag4, #tag5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="user-list">
+                        <div class="textPost">
+                            <div class="texth2">
+                                <h2>Josias Johnson</h2>
+                            </div>
+
+                            <h4>Css question</h4>
+                            <p>Estou enfrentando um problema relacionado à especificidade dos seletores CSS em meu projeto e gostaria de uma ajuda para entender o que estou fazendo de errado. 
+                            Tenho várias regras CSS que parecem estar em conflito e não estou conseguindo fazer com que o estilo desejado seja aplicado corretamente.</p>
+                            <p>Tags: #tag1, #tag2, #tag3, #tag4, #tag5</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-
-
+        </div>
     </div>
+
 @endsection

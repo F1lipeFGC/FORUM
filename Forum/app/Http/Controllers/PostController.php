@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function listAllPosts(){
-        return view('posts.listAllPosts');
+    public function VizuPost(){
+        return view('posts.VizuPost');
     }
     public function createPost(){
         return view('posts.createPost');
+        
     }
+
 
     public function listPostById(Request $request,$id) {
         // $user = User::where('id', $id)->first(); //Busca um usuário pelo ID
