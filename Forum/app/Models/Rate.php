@@ -5,16 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Rate extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title'
+        'vote'
     ];
 
-    public function topics()
+    public function user()
     {
-        return $this->belongsToMany(Topic::class, 'topic_tag');
+        return $this->belongsTo(User::class);
+    }
+
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
     }
 }

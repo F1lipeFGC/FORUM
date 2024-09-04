@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'photo',
+        'role'
     ];
 
     /**
@@ -42,14 +44,27 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts(){
 
+    public function posts()
+    {
         return $this->hasMany(Post::class);
     }
 
-    public function rates(){
-
-        return $this->belongsToMany(Post::class);
+    
+    public function rates()
+    {
+        return $this->hasMany(Rate::class);
     }
+
+    public function isModerator()
+    {
+        return $this->role === 'moderator' || $this->role === 'admin';
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
 
 }
