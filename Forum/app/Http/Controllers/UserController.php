@@ -10,15 +10,17 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function listAllUsers(Request $request) {
+
+    public function listAllUsers() {
         // lógica
-        return view('user.listAllUsers');
+        $users = User::all();
+        return view('users.listAllUsers', ['users' => $users]);
     }
 
-    public function listUser(Request $request, $uid) {
+    public function listUserById(Request $request, $uid) {
         // procurar o usuário no banco
         $user = User::where('id', $uid)->first();
-        return view('user.profile', ['user' => $user]);
+        return view('users.profile', ['user' => $user]);
     }
 
     public function updateUser(Request $request, $uid) {
@@ -43,14 +45,14 @@ class UserController extends Controller
     public function registerUser(Request $request) {
         if ($request->method() === 'GET') {
 
-            return view('user.register');
+            return view('users.create');
 
         } else {
             
             $request->validate([
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
-                'password' => 'required|string|min:8|confirmed'
+                'password' => 'required|string|min:8',
             ]);
 
             $user = User::create([
@@ -66,7 +68,6 @@ class UserController extends Controller
                     ->with('success', 'Registro realizado com sucesso.');
 
         }
-
     }
 
 }

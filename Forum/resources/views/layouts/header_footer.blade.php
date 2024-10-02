@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
         integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/btn.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
@@ -84,18 +85,24 @@
                 <a href="{{ route('listAllUsers') }}"><i class="fa-solid fa-users"></i> Lista de usuários</a>
 
                 <a href="#collapsePost" data-bs-toggle="collapse"><i class="fa-solid fa-comments"></i> Posts</a>
-                <a class="collapse" id="collapsePost" href="{{ route('VizuPost') }}"><i
+                <a class="collapse" id="collapsePost" href="{{ route('listAllPosts') }}"><i
                         class="fa-solid fa-comments"></i> Ver Post</a>
                 <a class="collapse" id="collapsePost" href="{{ route('createPost') }}"><i class="fa-solid fa-plus"></i>
                     Criar Posts</a>
 
+                <a href="#collapseCategory" data-bs-toggle="collapse"><i class="fa-solid fa-icons"></i> Category</a>
+                <a class="collapse" id="collapseCategory" href="{{ route('listAllCategories') }}"><i
+                        class="fa-solid fa-icons"></i> Ver Category</a>
+                <a class="collapse" id="collapsePost" href="{{ route('listAllCategories') }}"><i class="fa-solid fa-plus"></i>
+                    Criar Categories</a>
+
                 <a data-bs-toggle="collapse" href="#collapseTopicos"><i class="fa-solid fa-arrow-trend-up"></i>
                     Topicos</a>
-                <a class="collapse" id="collapseTopicos" href="{{ route('TopicsAll')}}"><i class="fa-solid fa-arrow-trend-up"></i> Ver Topicos</a>
+                <a class="collapse" id="collapseTopicos" href="{{ route('listAllTopics')}}"><i class="fa-solid fa-arrow-trend-up"></i> Ver Topicos</a>
                 <a class="collapse" id="collapseTopicos"><i class="fa-solid fa-plus"></i> Criar Topicos</a>
 
                 <a href="#collapseTag" data-bs-toggle="collapse"><i class="fa-solid fa-hashtag"></i> Tags</a>
-                <a class="collapse" id="collapseTag"><i class="fa-solid fa-hashtag"></i> Ver Tags</a>
+                <a class="collapse" id="collapseTag" href="{{ route('listAllTags')}}"><i class="fa-solid fa-hashtag"></i> Ver Tags</a>
                 <a class="collapse" id="collapseTag"><i class="fa-solid fa-plus"></i> Criar Tags</a>
                 
                 @if (Auth::check())

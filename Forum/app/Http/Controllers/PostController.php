@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function VizuPost(){
-        return view('posts.VizuPost');
+    public function listAllPosts(){
+        return view('posts.listAllPosts');
     }
     public function createPost(){
         return view('posts.createPost');

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function loginUser(Request $request) {
+    public function login(Request $request) {
         if ($request->method() === 'GET') {
             return view('auth.login');
         } else {
@@ -25,6 +25,12 @@ class AuthController extends Controller
             ])->withInput();
         }
     }
+
+    public function teste(){
+
+        return view('welcome');
+    }
+
 
     public function logoutUser(Request $request) {
         Auth::logout();
