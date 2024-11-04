@@ -21,7 +21,7 @@ Route::get('/', [AuthController::class, 'teste'])->name('teste');
 
 Route::match(['get', 'post'], '/login', [AuthController::class, 'login'])->name('login');
 
-Route::match(['get', 'post'], '/register', [UserController::class, 'register'])->name('register');
+Route::match(['get', 'post'], '/register', [UserController::class, 'registerUser'])->name('register');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 

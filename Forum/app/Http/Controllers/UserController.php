@@ -64,7 +64,7 @@ class UserController extends Controller
             Auth::login($user);
 
             return redirect()
-                    ->route('ListAllUsers')
+                    ->route('listAllPosts')
                     ->with('success', 'Registro realizado com sucesso.');
 
         }
