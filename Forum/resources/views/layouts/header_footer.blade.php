@@ -129,12 +129,6 @@
         @yield('content')
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; Filipe Fogaca Lopes</p>
-        </div>
-    </footer>
-
 </body>
 
 </html>

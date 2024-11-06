@@ -3,6 +3,10 @@
 
     use Illuminate\Http\Request;
     use App\Models\Topic;
+    use Illuminate\Support\Facades\Auth;
+    use App\Http\Controllers\Controller;
+    use App\Models\Post;
+    use App\Models\Category;
 
     class TopicController extends Controller
     {
@@ -21,16 +25,30 @@
             return view('Topics.createTopic');
         }
 
-        public function store(Request $request){
-            $request->validate([
-                'title' => 'required|max:255',
-                'description' => 'required',
+        public function store(Request $request)
+    {
+        if (!Auth::user())
+            return ("Unauthorized");
+            
+        $userId = Auth::id();
+        $request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'category' => 'required'
+        ]);
+
+            $topic = Topic::create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'status' => $request->status,
+                'category_id' => $request->category
             ]);
 
-            $topic = new Topic;
-            $topic->title = $request->title;
-            $topic->description = $request->description;
-            $topic-save();
+            Auth::user()->$topic->post()->create([
+                'user_id' => Auth::id(),
+                'image' => $request->image,
+                // 'image' => $request->file('image')->store('images', 'public')
+            ]);
 
             return redirect()->route('TopicsAll')->with('success', 'Topics created successfully');
 

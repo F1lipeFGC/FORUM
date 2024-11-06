@@ -7,7 +7,6 @@
         
             <div class="text">
                  <h1 class="TituloWelcome">Ola Bem Vindo ao Code Dentengler</h1> 
-                <h1 class="TituloWelcome">Seja Bem vindo ao MasterForum!</h1>
                 <p>Dedicado a todos os entusiastas, estudantes, profissionais e curiosos da área de tecnologia que buscam compartilhar conhecimentos, resolver problemas e aprender juntos.
 
                 O que você pode fazer aqui:
