@@ -57,8 +57,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/categories', [CategoryController::class, 'listAllCategories'])->name('listAllCategories');
     Route::get('/categories/{id}', [CategoryController::class, 'listCategoryById'])->name('listCategoryById');
     Route::post('/categories/create', [CategoryController::class, 'createCategory'])->name('createCategory');
-    Route::put('/categories/{id}/update', [CategoryController::class, 'updateCategory'])->name('updateCategory');
-    Route::get('/categories/{id}/edit', [CategoryController::class, 'editCategory'])->name('editCategory');
+    Route::get('/categories/{id}/update', [CategoryController::class, 'updateCategory'])->name('updateCategory');
+    Route::put('/categories/{id}/edit', [CategoryController::class, 'editCategory'])->name('editCategory');
     Route::get('/categories/{id}/delete', [CategoryController::class, 'deleteCategory'])->name('deleteCategory');
 
     Route::get('/myaccount', [UserController::class, 'myAccount'])->name('myAccount');
