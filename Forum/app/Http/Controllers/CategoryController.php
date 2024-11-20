@@ -14,10 +14,10 @@ class CategoryController extends Controller
         return view('category.listAllCategory', ['categories' => $categories]);
     }
 
-    public function listCategoryById($id)
+    public function listCreateCategory()
     {
-        $category = Category::findOrFail($id);
-        return view('category.listCategoryByid', ['category' => $category]);
+        $categories = Category::all(); // Busca todas as categorias do banco
+        return view('category.createCategory', ['categories' => $categories]);
     }
 
     public function createCategory(Request $request)
@@ -44,16 +44,25 @@ class CategoryController extends Controller
     public function updateCategory(Request $request, $id)
     {
         $request->validate([
-            'id' => 'required|int|max:255',
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:255',
+            
         ]);
+
+        $category = Category::findOrFail($id);
+        $category->title = $request->title;
+        $category->description = $request->description;
+        
+        $category->save();
+
+        return redirect()->route('listAllCategories')->with('success', 'Category updated successfully');
     }
 
     public function deleteCategory($id)
     {
         $category = Category::findOrFail($id);
         $category->delete();
+        
 
         return redirect()->route('listAllCategories')->with('success', 'Category deleted successfully');
     }

@@ -93,7 +93,7 @@
                 <a href="#collapseCategory" data-bs-toggle="collapse"><i class="fa-solid fa-icons"></i> Category</a>
                 <a class="collapse" id="collapseCategory" href="{{ route('listAllCategories') }}"><i
                         class="fa-solid fa-icons"></i> Ver Category</a>
-                <a class="collapse" id="collapsePost" href="{{ route('listAllCategories') }}"><i class="fa-solid fa-plus"></i>
+                <a class="collapse" id="collapseCategory"  href="{{ route('listCreateCategory') }}"><i class="fa-solid fa-plus"></i>
                     Criar Categories</a>
 
                 <a data-bs-toggle="collapse" href="#collapseTopicos"><i class="fa-solid fa-arrow-trend-up"></i>

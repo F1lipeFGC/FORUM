@@ -4,7 +4,10 @@
 
 @section('content')
 <div class="topic-container">
-    <h1 class="text-center" style="font-family: Garamond; margin-bottom: 30px">All Categories</h1>
+    <h1 class="text-center" style="font-family: Garamond">All Categories</h1>
+    <div class="text-center mb-3">
+        <button class="btn btn-75" data-bs-toggle="modal" data-bs-target="#createCategoryModal">Create New Category</button>
+    </div>
 
     @if(session('success'))
         <div class="alert alert-success text-center">{{ session('success') }}</div>

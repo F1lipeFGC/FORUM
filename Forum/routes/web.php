@@ -55,11 +55,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/tags/{id}/delete', [TagController::class, 'deleteTag'])->name('deleteTag');
 
     Route::get('/categories', [CategoryController::class, 'listAllCategories'])->name('listAllCategories');
-    Route::get('/categories/{id}', [CategoryController::class, 'listCategoryById'])->name('listCategoryById');
+    Route::get('/categoriesCreate', [CategoryController::class, 'listCreateCategory'])->name('listCreateCategory');
+    Route::get('/categories/{id}/', [CategoryController::class, 'listCategoryById'])->name('listCategoryById');
     Route::post('/categories/create', [CategoryController::class, 'createCategory'])->name('createCategory');
-    Route::get('/categories/{id}/update', [CategoryController::class, 'updateCategory'])->name('updateCategory');
-    Route::put('/categories/{id}/edit', [CategoryController::class, 'editCategory'])->name('editCategory');
-    Route::get('/categories/{id}/delete', [CategoryController::class, 'deleteCategory'])->name('deleteCategory');
+    Route::put('/categories/{id}/update', [CategoryController::class, 'updateCategory'])->name('updateCategory');
+    Route::post('/categories/{id}/edit', [CategoryController::class, 'editCategory'])->name('editCategory');
+    Route::delete('/categories/{id}/delete', [CategoryController::class, 'deleteCategory'])->name('deleteCategory');
 
     Route::get('/myaccount', [UserController::class, 'myAccount'])->name('myAccount');
     Route::put('/myaccount/update', [UserController::class, 'updateAccount'])->name('updateAccount');
