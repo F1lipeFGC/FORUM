@@ -18,7 +18,7 @@ class PostController extends Controller
     public function listPostById(Request $request,$id) {
         // $user = User::where('id', $id)->first(); //Busca um usuário pelo ID
         // return view('users.profile', ['user' => $user]);
-        return view('posts.view_post');
+        return view('posts.createPost');
     }
 
     public function UpdatePost(Request $request, $id) {
@@ -30,12 +30,12 @@ class PostController extends Controller
         // }
         // $user->save();
         // return redirect()->route('listUserById', [$user->id])->with('message-sucess', 'Alteração realizada com sucesso');
-        return view('posts.view_post');
+        return view('posts.createPost');
     }
 
     public function deletePost(Request $request, $id) {
         // $user = User::where('id', $id)->delete();
         // return redirect()->route('listAllUsers');
-        return view('posts.view_post');
+        return view('posts.createPost');
     }
 }

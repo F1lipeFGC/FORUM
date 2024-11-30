@@ -44,13 +44,13 @@ class TagController extends Controller
     public function editTag($id)
     {
         $tag = Tag::findOrFail($id);
-        return view('tags.editTag', ['tag' => $tag]);
+        return view('tags.edit', compact('tag'));
     }
 
     public function updateTag(Request $request, $id)
     {
         $request->validate([
-            'id' => 'required|int|max:255',
+
             'title' => 'required|string|max:255',
             
         ]);

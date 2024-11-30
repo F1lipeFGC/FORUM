@@ -10,20 +10,64 @@
 
     class TopicController extends Controller
     {
-        public function TopicsAll(){
+        public function listAllTopics(){
             $Topics = Topic::all();
             return view('Topics.TopicsAll', compact('Topics'));
         }
 
         public function listTopicById($id){
             $topic = topic::findOrFail($id);
-            return view('Topics.listTopicById', compact('topic'));
+            return view('Topics.TopicsAll', compact('topics'));
         }
 
-        public function createTopic()
+        public function showCreateForm()
         {
-            return view('Topics.createTopic');
+            return view('topics.createTopics'); 
         }
+
+
+        public function createTopic(Request $request)
+        {
+            // Validação dos dados do Topic (sem a imagem)
+            $request->validate([
+                'title' => 'required|string|max:255',
+                'description' => 'required|string',
+                'status' => 'nullable|string',
+                'category_id' => 'nullable|exists:categories,id',
+                'tags' => 'nullable|array',
+                'tags.*' => 'exists:tags,id',
+            ]);
+        
+            // Criando o tópico (sem imagem diretamente)
+            $topic = Topic::create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'status' => $request->status,
+                'category_id' => $request->category_id,
+            ]);
+        
+            // Validação para a imagem do Post
+            $request->validate([
+                'image' => 'nullable|image|mimes:jpg,png,jpeg,gif|max:2048', // Validação para a imagem no Post
+            ]);
+        
+            // Criando o post associado ao tópico (onde a imagem é armazenada)
+            $post = $topic->post()->create([
+                'user_id' => auth()->id(),
+                'image' => $request->hasFile('image') ? $request->file('image')->store('posts/images') : null, // Armazenando a imagem do post
+            ]);
+        
+            // Sincronizando as tags associadas ao tópico
+            if ($request->has('tags')) {
+                $topic->tags()->sync($request->tags);
+            }
+        
+            // Redirecionando para a página desejada
+            $redirectRoute = $request->input('viewName') === 'home' ? 'home' : 'listAllTopics';
+            return redirect()->route($redirectRoute)->with('success', 'Topic created successfully.');
+        }
+        
+        
 
         public function store(Request $request)
     {
@@ -59,18 +103,36 @@
             return view('Topics.editTopic', compact('topics'));
         }
 
-        public function updateTopic(Request $request, $id){
+        public function updateTopic(Request $request, $id)
+        {
             $request->validate([
                 'title' => 'required|max:255',
                 'description' => 'required',
+                'category_id' => 'required|exists:categories,id',
+                'status' => 'required|boolean',
+                'tags' => 'nullable|array',
+                'tags.*' => 'exists:tags,id',
+                'viewName' => 'nullable|string', 
             ]);
-
+        
             $topic = Topic::findOrFail($id);
-            $topic->title = $request->title;
-            $topic->description = $request->description;
-            $topic->save();
-
-            return redirect()->route('TopicsAll')->with('success', 'Topic updated successfully');
+            
+            $topic->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'category_id' => $request->category_id,
+                'status' => $request->status,
+            ]);
+        
+            if ($request->has('tags')) {
+                $topic->tags()->sync($request->tags);
+            } else {
+                $topic->tags()->sync([]);
+            }
+        
+            $redirectRoute = $request->viewName === 'home' ? 'home' : 'listAllTopics';
+        
+            return redirect()->route($redirectRoute)->with('success', 'Topic updated successfully.');
         }
 
         public function deleteTopic($id){

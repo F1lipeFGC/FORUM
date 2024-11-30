@@ -35,7 +35,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/topics', [TopicController::class, 'listAllTopics'])->name('listAllTopics');
     Route::get('/topics/{id}', [TopicController::class, 'listTopicById'])->name('listTopicById');
-    Route::post('/topics', [TopicController::class, 'createTopic'])->name('createTopic');
+    Route::get('/topics/create', [TopicController::class, 'showCreateForm'])->name('showCreateForm');
+    Route::post('/topics', [TopicController::class, 'createTopic'])->name('createTopic');    
     Route::put('/topics/{id}/update', [TopicController::class, 'updateTopic'])->name('updateTopic');
     Route::get('/topics/{id}/edit', [TopicController::class, 'editTopic'])->name('editTopic');
     Route::get('/topics/{id}/delete', [TopicController::class, 'deleteTopic'])->name('deleteTopic');

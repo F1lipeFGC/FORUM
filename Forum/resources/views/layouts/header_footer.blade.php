@@ -93,14 +93,8 @@
                 <a class="collapse" id="collapseCategory"  href="{{ route('listCreateCategory') }}"><i class="fa-solid fa-plus"></i>
                     Criar Categories</a>
 
-                <a data-bs-toggle="collapse" href="#collapseTopicos"><i class="fa-solid fa-arrow-trend-up"></i>
-                    Topicos</a>
-                <a class="collapse" id="collapseTopicos" href="{{ route('listAllTopics')}}"><i class="fa-solid fa-arrow-trend-up"></i> Ver Topicos</a>
-                <a class="collapse" id="collapseTopicos"><i class="fa-solid fa-plus"></i> Criar Topicos</a>
-
-                <a href="#collapseTag" data-bs-toggle="collapse"><i class="fa-solid fa-hashtag"></i> Tags</a>
-                <a class="collapse" id="collapseTag" href="{{ route('listAllTags')}}"><i class="fa-solid fa-hashtag"></i> Ver Tags</a>
-                <a class="collapse" id="collapseTag"><i class="fa-solid fa-plus"></i> Criar Tags</a>
+                    <a data-bs-toggle="collapse" href="#collapseTopicos"><i class="fa-solid fa-arrow-trend-up"></i> Topicos</a>
+                        <a class="collapse" id="collapseTopicos" href="{{ route('listAllTopics') }}"><i class="fa-solid fa-plus"></i> Criar Tópicos</a>
                 
                 @if (Auth::check())
                 <a href="{{ route('listUserById', [Auth::user()->id]) }}" class="sidebar-user">

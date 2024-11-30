@@ -23,23 +23,43 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($tags as $tag)
-                    <tr>
-                        <td>{{ $tag->id }}</td>
-                        <td>{{ $tag->title }}</td>
-                        <td>
-                            <a href="{{ route('listTagById', $tag->id) }}" class="btn btn-info">View</a>
-                            <a href="{{ route('updateTag', $tag->id) }}" class="btn btn-warning">Edit</a>
+            @foreach($tags as $tag)
+    <tr>
+        <td>{{ $tag->id }}</td>
+        <td>{{ $tag->title }}</td>
+        <td>
+            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editTagModal-{{ $tag->id }}">Edit</button>
+            <button class="btn btn-danger" onclick="deleteTag({{ $tag->id }})">Delete</button>
 
-                            <!-- Alterado o botão de exclusão para usar SweetAlert -->
-                            <button class="btn btn-danger" onclick="deleteTag({{ $tag->id }})">Delete</button>
+            <form id="delete-form-{{ $tag->id }}" action="{{ route('deleteTag', $tag->id) }}" method="GET" style="display: none;">
+                @csrf
+            </form>
+        </td>
+    </tr>
 
-                            <form id="delete-form-{{ $tag->id }}" action="{{ route('deleteTag', $tag->id) }}" method="GET" style="display: none;">
-                                @csrf
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
+                <!-- Modal para edição -->
+                <div class="modal fade" id="editTagModal-{{ $tag->id }}" tabindex="-1" aria-labelledby="editTagModalLabel-{{ $tag->id }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editTagModalLabel-{{ $tag->id }}">Edit Tag</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{ route('updateTag', $tag->id) }}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="mb-3">
+                                        <label for="title-{{ $tag->id }}" class="form-label">Title</label>
+                                        <input type="text" class="form-control" id="title-{{ $tag->id }}" name="title" value="{{ $tag->title }}" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Update Tag</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
             </tbody>
         </table>
     </div>
