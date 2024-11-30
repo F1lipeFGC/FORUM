@@ -13,6 +13,13 @@ class TagController extends Controller
         return view('tags.listAllTags', ['tags' => $tags]);
     }
 
+    public function showCreateForm()
+{
+    $categories = Category::all();
+    $tags = Tag::all();
+    return view('posts.create', compact('categories', 'tags'));
+}
+
     public function listTagById($id)
     {
         $tag = Tag::findOrFail($id);

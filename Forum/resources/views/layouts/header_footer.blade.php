@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="icon" href="{{ asset('images/masterIcon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/all.min.css') }}">
     <script src="{{ asset('js/sidebar.js') }}" defer></script>
@@ -45,7 +44,6 @@
             </script>
         @endif
         <div class="navbar">
-            <img class="Navbarlogo" src="{{ asset('images/logo.png') }}" id="btn-navbar">
             <div class="nav-search">
                <div class="search">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -78,17 +76,16 @@
         <div id="sidebar" class="sidebar">
             <div class="sidebar-header">
             <img class="Navbarlogo" src="{{ asset('images/logo.png') }}">
-                <i class="fas fa-times" id="close-btn"></i>
             </div>
             <div class="sidebar-content">
                 <a href="{{ route('teste') }}"><i class="fa fa-home"></i> Início</a>
                 <a href="{{ route('listAllUsers') }}"><i class="fa-solid fa-users"></i> Lista de usuários</a>
 
                 <a href="#collapsePost" data-bs-toggle="collapse"><i class="fa-solid fa-comments"></i> Posts</a>
-                <a class="collapse" id="collapsePost" href="{{ route('listAllPosts') }}"><i
-                        class="fa-solid fa-comments"></i> Ver Post</a>
-                <a class="collapse" id="collapsePost" href="{{ route('createPost') }}"><i class="fa-solid fa-plus"></i>
-                    Criar Posts</a>
+                <div id="collapsePost" class="collapse">
+                    <a href="{{ route('listAllPosts') }}"><i class="fa-solid fa-comments"></i> Ver Post</a>
+                    <a href="{{ route('createPost') }}"><i class="fa-solid fa-plus"></i> Criar Post</a>
+                </div>
 
                 <a href="#collapseCategory" data-bs-toggle="collapse"><i class="fa-solid fa-icons"></i> Category</a>
                 <a class="collapse" id="collapseCategory" href="{{ route('listAllCategories') }}"><i

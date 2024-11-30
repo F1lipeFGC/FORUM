@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
 
+    public function showCreateForm()
+{
+    $categories = Category::all();
+    return view('posts.create', compact('categories'));
+}
+
     public function listAllCategories()
     {
         $categories = Category::all();

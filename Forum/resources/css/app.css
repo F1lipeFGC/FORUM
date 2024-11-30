@@ -1,0 +1,31 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--vermelho);  /* Ou a cor desejada */
+  }
+  
+  body {
+    padding-top: 60px;  /* Para garantir que o conteúdo não fique embaixo da navbar fixa */
+  }
+
+  #searchInput {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+#searchInput:focus {
+    width: 300px;  /* Expande a barra de pesquisa ao focar */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #searchInput {
+        width: 100%;  /* A barra de pesquisa ocupa toda a largura em telas pequenas */
+    }
+}
