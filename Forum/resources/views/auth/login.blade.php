@@ -26,6 +26,7 @@
                 </div>
             
                 <input type="submit" class="submit-button" value="Enviar">
+                <a href="{{ route('register') }}">camelo</a>
             </form>
         </div>
 </div>

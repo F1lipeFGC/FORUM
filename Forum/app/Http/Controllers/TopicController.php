@@ -10,10 +10,12 @@
 
     class TopicController extends Controller
     {
-        public function listAllTopics(){
-            $Topics = Topic::all();
-            return view('Topics.TopicsAll', compact('Topics'));
+        public function listAllTopics()
+        {
+            $topics = Topic::with('comments')->get();
+            return view('topics.listAllTopics', ['topics' => $topics]);
         }
+    
 
         public function listTopicById($id){
             $topic = topic::findOrFail($id);

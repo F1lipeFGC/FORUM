@@ -12,7 +12,7 @@ class UserController extends Controller
     // Construtor para aplicar middleware nas funções
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
         $this->middleware('admin')->only(['listAllUsers', 'deleteUser']); // Somente administradores podem acessar essas rotas
     }
 

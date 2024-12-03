@@ -99,11 +99,11 @@
                 <a href="#collapseTopicos" data-bs-toggle="collapse"><i class="fa-solid fa-arrow-trend-up"></i> Tópicos</a>
                 <div id="collapseTopicos" class="collapse">
                     <a href="{{ route('teste') }}"><i class="fa-solid fa-arrow-trend-up"></i> Ver Tópicos</a>
-                    @if (!Auth::user()->suspended)
+
                         <a href="{{ route('createTopic') }}"><i class="fa-solid fa-plus"></i> Criar Tópico</a>
-                    @else
+
                         <a href="#" class="text-muted"><i class="fa-solid fa-ban"></i> Suspenso</a>
-                    @endif
+
                 </div>
 
                 <a href="settings"><i class="fa fa-cog"></i> Configurações</a>
