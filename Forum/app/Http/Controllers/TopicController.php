@@ -7,13 +7,14 @@
     use App\Http\Controllers\Controller;
     use App\Models\Post;
     use App\Models\Category;
+    use App\Models\Tag  ;
 
     class TopicController extends Controller
     {
         public function listAllTopics()
         {
             $topics = Topic::with('comments')->get();
-            return view('topics.listAllTopics', ['topics' => $topics]);
+            return view('topics.createTopics', ['topics' => $topics]);
         }
     
 
@@ -30,47 +31,9 @@
 
         public function createTopic(Request $request)
         {
-            // Validação dos dados do Topic (sem a imagem)
-            $request->validate([
-                'title' => 'required|string|max:255',
-                'description' => 'required|string',
-                'status' => 'nullable|string',
-                'category_id' => 'nullable|exists:categories,id',
-                'tags' => 'nullable|array',
-                'tags.*' => 'exists:tags,id',
-            ]);
-        
-            // Criando o tópico (sem imagem diretamente)
-            $topic = Topic::create([
-                'title' => $request->title,
-                'description' => $request->description,
-                'status' => $request->status,
-                'category_id' => $request->category_id,
-            ]);
-        
-            // Validação para a imagem do Post
-            $request->validate([
-                'image' => 'nullable|image|mimes:jpg,png,jpeg,gif|max:2048', // Validação para a imagem no Post
-            ]);
-        
-            // Criando o post associado ao tópico (onde a imagem é armazenada)
-            $post = $topic->post()->create([
-                'user_id' => auth()->id(),
-                'image' => $request->hasFile('image') ? $request->file('image')->store('posts/images') : null, // Armazenando a imagem do post
-            ]);
-        
-            // Sincronizando as tags associadas ao tópico
-            if ($request->has('tags')) {
-                $topic->tags()->sync($request->tags);
-            }
-
-            if ($user->suspended) {
-                return redirect()->route('listAllTopics')->with('error', 'Você está suspenso e não pode criar tópicos.');
-            }
-        
-            // Redirecionando para a página desejada
-            $redirectRoute = $request->input('viewName') === 'home' ? 'home' : 'listAllTopics';
-            return redirect()->route($redirectRoute)->with('success', 'Topic created successfully.');
+            $categories = Category::all();
+            $tags = Tag::all();
+            return view('topics.createTopics', ['categories' => $categories, 'tags' => $tags]);
         }
         
         public function showTopics(Request $request)
@@ -101,30 +64,46 @@
 
         public function store(Request $request)
     {
-        if (!Auth::user())
-            return ("Unauthorized");
-            
         $userId = Auth::id();
+
         $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
-            'category' => 'required'
+            'image' => 'nullable|string',
+            'status' => 'required|int',
+            'category_id' => 'nullable|exists:categories,id',
         ]);
 
-            $topic = Topic::create([
-                'title' => $request->title,
-                'description' => $request->description,
-                'status' => $request->status,
-                'category_id' => $request->category
-            ]);
+        $topic = Topic::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'status' => $request->status,
+            'category_id' => $request->category
+        ]);
 
-            Auth::user()->$topic->post()->create([
-                'user_id' => Auth::id(),
-                'image' => $request->image,
-                // 'image' => $request->file('image')->store('images', 'public')
-            ]);
+        $topic->post()->create([
+            'user_id' => Auth::id(),
+            'image' => $request->image ?? '',
+            // 'image' => $request->file('image')->store('images', 'public')
+        ]);
 
-            return redirect()->route('TopicsAll')->with('success', 'Topics created successfully');
+        // $topic = new Topic([
+        //     'title' => $request->title,
+        //     'description' => $request->description,
+        //     'status' => $request->status,
+        //     'category_id' => $request->category
+        // ]);
+
+        // $post = new Post([
+        //     'image' => $request->image
+        // ]);
+
+        
+        // $topic->post()->save($post);
+
+
+
+        return($topic);
 
         }
 

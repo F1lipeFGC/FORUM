@@ -12,7 +12,8 @@ class Topic extends Post
     protected $fillable = [
         'title',
         'description',
-        'status'
+        'status',
+        'category_id'
     ];
 
     public function post()
@@ -32,6 +33,7 @@ class Topic extends Post
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class, 'topic_tags');
     }
+    
 }

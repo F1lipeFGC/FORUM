@@ -100,9 +100,9 @@
                 <div id="collapseTopicos" class="collapse">
                     <a href="{{ route('teste') }}"><i class="fa-solid fa-arrow-trend-up"></i> Ver Tópicos</a>
 
-                        <a href="{{ route('createTopic') }}"><i class="fa-solid fa-plus"></i> Criar Tópico</a>
+                    <a href="{{ route('createTopic') }}"><i class="fa-solid fa-plus"></i> Criar Tópico</a>
 
-                        <a href="#" class="text-muted"><i class="fa-solid fa-ban"></i> Suspenso</a>
+                        <!-- <a href="#" class="text-muted"><i class="fa-solid fa-ban"></i> Suspenso</a> -->
 
                 </div>
 

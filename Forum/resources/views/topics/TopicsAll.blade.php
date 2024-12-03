@@ -54,19 +54,6 @@
                         </div>
 
 
-                        <div class="card-footer">
-                            <div class="d-flex justify-content-between">
-                                <a href="{{ route('listTopicById', $topic->id) }}" class="btn btn-primary">Ver Tópico</a>
-                                <div class="d-flex">
-                                    <a href="{{ route('topics.edit', $topic->id) }}" class="btn btn-warning me-2">Editar</a>
-                                    <form action="{{ route('topics.delete', $topic->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Excluir</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             @endforeach
