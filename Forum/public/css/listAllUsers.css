@@ -1,63 +1,67 @@
-:root {
-    --vermelho: #FF0000;
-    --bege: #F5F5DC;
-    --branco: #FFFFFF;
-    --preto: #000000;
+/* Estilos básicos */
+.containerAllUser {
+    margin: 20px;
+    padding: 20px;
 }
 
-.users-list{
-    margin-top: 30px;
+.users-list {
+    margin: 20px 0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 10px;
     text-align: center;
-}
-.login-title {
-    color: #FFF;
-    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ddd;
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
-    width: 100%;
+.btn {
+    padding: 6px 12px;
+    text-decoration: none;
+    color: white;
+    border-radius: 4px;
 }
 
-.form-label {
-    
-    margin-bottom: 0.5rem;
-    display: block;
-    text-align: left;
+.btn-edit {
+    background-color: #f39c12;
 }
 
-.form-input {
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #4A5568;
-    
-    color: #000;
+.btn-danger {
+    background-color: #e74c3c;
 }
 
-.form-input:focus {
-    outline: none;
-    border-color: #718096;
+.btn-cancel {
+    background-color: #95a5a6;
 }
 
-.submit-button {
-    background-color: #6B46C1; 
-    color: #fff;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
+.fa {
+    margin-right: 5px;
 }
 
-.submit-button:hover {
-    background-color:var(--masterball-purple-dark);
+.modal-content {
+    border-radius: 8px;
 }
 
-.error-message {
-    color: #E53E3E;
-    font-size: 0.875rem;
-    margin-top: 0.5rem;
-    display: block;
+.modal-header {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.modal-footer .btn {
+    padding: 10px;
+}
+
+/* Alertas para os status */
+.suspended {
+    background-color: #f39c12;
+    color: white;
+}
+
+.suspended-text {
+    color: #f39c12;
+    font-weight: bold;
 }

@@ -56,15 +56,16 @@ class User extends Authenticatable
         return $this->hasMany(Rate::class);
     }
 
-    public function isModerator()
-    {
-        return $this->role === 'moderator' || $this->role === 'admin';
-    }
-
     public function isAdmin()
     {
         return $this->role === 'admin';
     }
+    
+    public function isModerator()
+    {
+        return in_array($this->role, ['admin', 'moderator']);
+    }
+    
 
 
 }

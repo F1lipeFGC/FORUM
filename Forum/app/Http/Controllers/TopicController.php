@@ -61,6 +61,10 @@
             if ($request->has('tags')) {
                 $topic->tags()->sync($request->tags);
             }
+
+            if ($user->suspended) {
+                return redirect()->route('listAllTopics')->with('error', 'Você está suspenso e não pode criar tópicos.');
+            }
         
             // Redirecionando para a página desejada
             $redirectRoute = $request->input('viewName') === 'home' ? 'home' : 'listAllTopics';

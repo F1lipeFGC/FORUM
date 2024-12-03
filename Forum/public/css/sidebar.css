@@ -19,6 +19,7 @@ body, main {
     
 }
 
+@media (max-width: 768px) {
 .fas:hover, .fa:hover, .NavbarIcon:hover{
    
     transform: scale(1.1);
@@ -70,95 +71,99 @@ body, main {
     display: flex;
 
 }
+}
 
 
-@media (max-width: 1023px){
-    .navbar-link, .nav-icon{
-        display: none;
+    @media (max-width: 1023px){
+        .navbar-link, .nav-icon{
+            display: none;
+        }
+
+        .navbar > .NavEnter{
+            display: none;
+        }
+
+        .sidebar-content .sidebar-user{
+            display: block;
+        }
     }
 
-    .navbar > .NavEnter{
-        display: none;
+    #collapseTopicos, #collapsePost, #collapseTag{
+        margin-left: 40px;
+        width: calc(100% - 25px);
+    }
+    .navbar-link:hover{
+        color: #fff;
+        transform: scale(1.1);
+        background-color: #920000;
+        border-radius: 10px;
     }
 
-    .sidebar-content .sidebar-user{
-        display: block;
+    .NavbarIcon{
+        height: 60PX;
+        padding-bottom: 40px;
     }
-}
+    .Navbarlogo{
+        height: 75px;
+        
+    }
 
-#collapseTopicos, #collapsePost, #collapseTag{
-    margin-left: 40px;
-    width: calc(100% - 25px);
-}
-.navbar-link:hover{
-    color: #fff;
-    transform: scale(1.1);
-    background-color: #920000;
-    border-radius: 10px;
-}
+ 
 
-.NavbarIcon{
-    height: 60PX;
-    padding-bottom: 40px;
-}
-.Navbarlogo{
-    height: 75px;
-    
-}
+        .sidebar {
+            display: flex;
+            height: 100%;
+            width: 260px;
+            position: fixed;
+            top: 0;
+            left: -300px;
+            background: var(--vermelho) ;
+            overflow-x: hidden;
+            transition: left 0.5s;
+            padding-top: 60px;
+            z-index: 1;
+        }
 
-.sidebar {
-    display: flex;
-    height: 100%;
-    width: 260px;
-    position: fixed;
-    top: 0;
-    left: -300px;
-    background: var(--vermelho) ;
-    overflow-x: hidden;
-    transition: left 0.5s;
-    padding-top: 60px;
-    z-index: 1;
-}
+        .sidebar.open {
+            left: 0;
+        }
 
-.sidebar.open {
-    left: 0;
-}
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0px;
+            left: 25px;
+            right: 25px;
+            font-size: 24px;
+            color: white;
+        }
 
-.sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    top: 0px;
-    left: 25px;
-    right: 25px;
-    font-size: 24px;
-    color: white;
-}
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 13px;
+            color: var(--branco);
+            display: block;
+            transition: 0.3s;
+            border-radius: 10px;
+            margin: 15px;
+            background-color: var(--vermelho);
+            width: 100%;
+        }
 
-.sidebar a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 13px;
-    color: var(--branco);
-    display: block;
-    transition: 0.3s;
-    border-radius: 10px;
-    margin: 15px;
-    background-color: var(--vermelho);
-    width: 100%;
-}
+        .sidebar a:hover {
+        
+            transform: scale(1.05); 
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
 
-.sidebar a:hover {
-   
-    transform: scale(1.05); 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
+        .menu-text {
+            flex: 1; 
 
-.menu-text {
-    flex: 1; 
-
-}
+        }
+ 
 
 .navbar {
     height: 70px;
@@ -171,37 +176,41 @@ body, main {
     
 }
 
-
 .navbar i {
     font-size: 30px;
     color: var(--branco);
     cursor: pointer;
 }
 
+.nav-search > .search {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centraliza o campo de pesquisa na navbar */
+    width: 100%; /* Faz o campo de pesquisa ocupar o espaço disponível */
+}
+
 .nav-search > .search input {
-    width: 800px;
+    width: 400px;
     padding: 6px;
     background: #E8E8E8;
     border: none;
     outline: none;
-    padding-left: 60px;
+    padding-left: 40px; 
     color: #808080;
     border-radius: 5px;
-}
-
-.nav-search > .search {
-    position: relative;
+    text-align: center; 
 }
 
 .nav-search > .search > i {
     position: absolute;
     top: 50%;
+    left: 10px; 
     font-size: 20px;
-    transform: translateY(-50%);
+    transform: translateY(-50%); 
     background: #E8E8E8;
-    margin-left: 8px;
     color: #808080;
 }
+
 .titleWrapper {
     flex: 1;
     text-align: center;

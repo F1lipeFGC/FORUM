@@ -14,6 +14,16 @@ body {
   background-color: #f0f0f0; /* Cor de fundo para o corpo da aplicação */
 }
 
+.profile-pic {
+  width: 40px; /* Tamanho do mini círculo */
+  height: 40px; /* Tamanho do mini círculo */
+  border-radius: 50%; /* Torna a imagem redonda */
+  object-fit: cover; /* Ajusta a imagem para preencher o círculo sem distorção */
+  border: 2px solid #fff; /* Borda branca para destacar a imagem */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Sombra suave para destacar */
+  margin-right: 30px;
+}
+
 #menu {
   position: absolute;
   top: 20px;
@@ -49,12 +59,12 @@ body {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 200px;
+  width: 200px; 
   transition: width 0.3s ease;
 }
 
 #searchInput:focus {
-  width: 250px;  /* Expande a barra de pesquisa ao focar */
+  width: 250px; 
 }
 
 @media (max-width: 768px) {
@@ -91,6 +101,7 @@ body {
   border: 1px solid #ccc;
   width: 300px;
   max-width: 100%;
+  margin: 0 auto; 
 }
 
 .header .user-actions {
@@ -110,7 +121,7 @@ body {
   /* Reduzindo a largura da barra de pesquisa */
   .header .search-bar {
       width: 80%; /* Ou ajuste para outro valor que você achar melhor */
-      margin: 10px 0;
+      margin: 0 auto;
   }
 
   /* Reorganizando os elementos para empilhar na vertical */
@@ -137,4 +148,6 @@ body {
   .header .user-actions a {
       font-size: 0.9rem;
   }
+
+
 }

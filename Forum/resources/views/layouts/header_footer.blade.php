@@ -21,7 +21,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-    <title> CodeDentegler - Laravel </title>
+    <title>CodeDentegler - Laravel</title>
 </head>
 
 <body>
@@ -37,49 +37,52 @@
         @elseif (Session::has('message-error'))
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
-                    toastr.success("{{ session('message-error') }}");
-
+                    toastr.error("{{ session('message-error') }}");
                     timeOut: 4000
                 });
             </script>
         @endif
         <div class="navbar">
             <div class="nav-search">
-               <div class="search">
+                <div class="search">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="search" name="" id="" placeholder="Busque Topicos">
-               </div> 
+                </div>
             </div>
 
             @if (Auth::check())
             <div class="Nav-Login">
-                <a class="Nav-Enter" href="{{ route('listUserById', [Auth::user()->id]) }}" class="sidebar-user">
-                            Meu Perfil
+                <a href="{{ route('listUserById', [Auth::user()->id]) }}" class="sidebar-user">
+                    <!-- Exibir foto de perfil no mini círculo -->
+                    <img src="{{ Storage::url(Auth::user()->photo) }}" alt="Foto de Perfil" class="profile-pic">
                 </a>
-                <a class="Nav-Enter" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="sidebar-user">
-                            Sair
-                </a>
-                        <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
-                        @csrf
-
-                        </form>
+                    <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="sidebar-user">
+                        Sair
+                    </a>
+                <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </div>
 
             @else
-
             <div class="Nav-Login">
                 <a class="navbar-link" href="register">Cadastre-se</a>
                 <a class="navbar-link" href="login">Entrar</a>
             </div>
             @endif
         </div>
+
         <div id="sidebar" class="sidebar">
             <div class="sidebar-header">
-            <img class="Navbarlogo" src="{{ asset('images/logo.png') }}">
+                <img class="Navbarlogo" src="{{ asset('images/logo.png') }}">
             </div>
             <div class="sidebar-content">
                 <a href="{{ route('teste') }}"><i class="fa fa-home"></i> Início</a>
-                <a href="{{ route('listAllUsers') }}"><i class="fa-solid fa-users"></i> Lista de usuários</a>
+
+                <!-- Exibir apenas para administradores -->
+                @if (Auth::check() && Auth::user()->isAdmin())
+                    <a href="{{ route('listAllUsers') }}"><i class="fa-solid fa-users"></i> Lista de usuários</a>
+                @endif
 
                 <a href="#collapsePost" data-bs-toggle="collapse"><i class="fa-solid fa-comments"></i> Posts</a>
                 <div id="collapsePost" class="collapse">
@@ -88,28 +91,20 @@
                 </div>
 
                 <a href="#collapseCategory" data-bs-toggle="collapse"><i class="fa-solid fa-icons"></i> Category</a>
-                <a class="collapse" id="collapseCategory" href="{{ route('listAllCategories') }}"><i
-                        class="fa-solid fa-icons"></i> Ver Category</a>
-                <a class="collapse" id="collapseCategory"  href="{{ route('listCreateCategory') }}"><i class="fa-solid fa-plus"></i>
-                    Criar Categories</a>
+                <div id="collapseCategory" class="collapse">
+                    <a href="{{ route('listAllCategories') }}"><i class="fa-solid fa-icons"></i> Ver Categories</a>
+                    <a href="{{ route('listCreateCategory') }}"><i class="fa-solid fa-plus"></i> Criar Categories</a>
+                </div>
 
-                    <a data-bs-toggle="collapse" href="#collapseTopicos"><i class="fa-solid fa-arrow-trend-up"></i> Topicos</a>
-                        <a class="collapse" id="collapseTopicos" href="{{ route('listAllTopics') }}"><i class="fa-solid fa-plus"></i> Criar Tópicos</a>
-                
-                @if (Auth::check())
-                <a href="{{ route('listUserById', [Auth::user()->id]) }}" class="sidebar-user">
-                        Meu Perfil
-                    </a>
-                    <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="sidebar-user">
-                        Sair
-                    </a>
-                    <form id="logout-form" action="{{route('logout')}}" method="post" style="display: none;">
-                        @csrf
-                    </form>
-                @else
-                    <a class="sidebar-user" href="register">Cadastre-se</a>
-                    <a class="sidebar-user"href="login">Entrar</a>
-                @endif
+                <a href="#collapseTopicos" data-bs-toggle="collapse"><i class="fa-solid fa-arrow-trend-up"></i> Tópicos</a>
+                <div id="collapseTopicos" class="collapse">
+                    <a href="{{ route('listAllTopics') }}"><i class="fa-solid fa-arrow-trend-up"></i> Ver Tópicos</a>
+                    @if (!Auth::user()->suspended)
+                        <a href="{{ route('createTopic') }}"><i class="fa-solid fa-plus"></i> Criar Tópico</a>
+                    @else
+                        <a href="#" class="text-muted"><i class="fa-solid fa-ban"></i> Suspenso</a>
+                    @endif
+                </div>
 
                 <a href="settings"><i class="fa fa-cog"></i> Configurações</a>
             </div>
