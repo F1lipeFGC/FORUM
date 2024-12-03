@@ -6,6 +6,14 @@
     z-index: 1000;
     background-color: var(--vermelho);  /* Ou a cor desejada */
   }
+
+  a.navbar-link{
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+    margin-left: 50px;
+
+}
   
   body {
     padding-top: 60px;  /* Para garantir que o conteúdo não fique embaixo da navbar fixa */

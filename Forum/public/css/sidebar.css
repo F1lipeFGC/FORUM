@@ -19,6 +19,13 @@ body, main {
     
 }
 
+.siderbar-user{
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+    margin-left: 50px;
+}
+
 @media (max-width: 768px) {
 .fas:hover, .fa:hover, .NavbarIcon:hover{
    
@@ -31,6 +38,14 @@ body, main {
 }
 
 .navbar-link{
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+    margin-left: 50px;
+
+}
+
+a.navbar-link{
     color: #fff;
     text-decoration: none;
     padding: 5px;
@@ -158,6 +173,8 @@ body, main {
             transform: scale(1.05); 
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
+
+
 
         .menu-text {
             flex: 1; 

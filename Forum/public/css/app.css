@@ -14,6 +14,16 @@ body {
   background-color: #f0f0f0; /* Cor de fundo para o corpo da aplicação */
 }
 
+.navbar-link{
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+  margin-left: 50px;
+
+}
+
+
+
 .profile-pic {
   width: 40px; /* Tamanho do mini círculo */
   height: 40px; /* Tamanho do mini círculo */

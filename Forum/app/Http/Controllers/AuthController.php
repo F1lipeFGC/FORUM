@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Tag;
+use App\Models\Category;
+use App\Models\Topic;
 
 class AuthController extends Controller
 {
@@ -28,7 +31,15 @@ class AuthController extends Controller
 
     public function teste(){
 
-        return view('welcome');
+
+        $tags = Tag::all();  
+        $categories = Category::all();
+        $topics = Topic::all();    
+
+        return view('topics.TopicsAll', compact('tags','categories','topics'));
+        
+        
+
     }
 
 

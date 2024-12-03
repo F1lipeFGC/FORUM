@@ -113,6 +113,8 @@ class UserController extends Controller
         return redirect()->route('listAllUsers')->with('status', 'Usuário suspenso com sucesso.');
     }
 
+
+
     public function registerUser(Request $request) {
         if ($request->method() === 'GET') {
             return view('users.create');
