@@ -19,9 +19,10 @@
     
 
         public function listTopicById($id){
-            $topic = topic::findOrFail($id);
-            return view('Topics.TopicsAll', compact('topics'));
+            $topic = Topic::findOrFail($id);
+            return view('Topics.TopicsAll', compact('topic'));
         }
+        
 
         public function showCreateForm()
         {
@@ -149,5 +150,10 @@
             $topic->delete();
 
             return redirect()->route('TopicsAll')->with('success', 'Topic deleted successfully');
+        }
+
+        public function TopicsAll(){
+            $topics = Topic::all();
+            return view('topics.topicsAll', compact('topics'));
         }
     }

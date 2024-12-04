@@ -26,6 +26,7 @@ Route::match(['get', 'post'], '/register', [UserController::class, 'registerUser
 Route::post('/logout', [AuthController::class, 'logoutUser'])->name('logout');
 
 Route::get('/topics/list', [TopicController::class, 'listAllTopics'])->name('listAllTopics');
+Route::get('/topics', [TopicController::class, 'TopicsAll'])->name('TopicsAll');
 Route::post('/topics/store', [TopicController::class, 'store'])->name('storeTopic');
 Route::get('/topics/create', [TopicController::class, 'createTopic'])->name('createTopic');
 Route::get('/topics/{id}', [TopicController::class, 'listTopicById'])->name('listTopicById');
@@ -56,7 +57,7 @@ Route::middleware(['auth'])->group(function () {
   
 
     // Rotas do PostController
-    Route::get('/posts', [PostController::class, 'listAllPosts'])->name('listAllPosts');
+    Route::get('/posts', [TopicController::class, 'topicsAll'])->name('listAllPosts');
     Route::get('/posts/{id}', [PostController::class, 'listPostById'])->name('listPostById');
     Route::post('/posts/create', [PostController::class, 'createPost'])->name('createPost');
     Route::put('/posts/{id}/update', [PostController::class, 'updatePost'])->name('updatePost');

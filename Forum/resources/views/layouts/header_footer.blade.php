@@ -58,9 +58,9 @@
             <div class="Nav-Login">
                 <a href="{{ route('listUserById', [Auth::user()->id]) }}" class="sidebar-user">
                     <!-- Exibir foto de perfil no mini círculo -->
-                    <img src="{{ Storage::url(Auth::user()->photo) }}" alt="Foto de Perfil" class="profile-pic">
+                    <img src="{{ Storage::url(Auth::user()->photo) }}"class="profile-pic">
                 </a>
-                    <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="sidebar-user">
+                    <a Class="sidebar-content" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="sidebar-user">
                         Sair
                     </a>
                 <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
@@ -109,7 +109,7 @@
 
                 </div>
 
-                <a href="settings"><i class="fa fa-cog"></i> Configurações</a>
+                <a href="{{ route('listUserById', [Auth::user()->id]) }}"><i class="fa fa-cog"></i> Configurações</a>
             </div>
         </div>
     </div>

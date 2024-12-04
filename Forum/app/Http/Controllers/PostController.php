@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function listAllPosts(){
-        return view('posts.listAllPosts');
+        return view('topics.TopicsAll');
     }
     public function createPost(){
         return view('posts.createPost');
