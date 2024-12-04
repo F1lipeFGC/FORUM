@@ -94,6 +94,11 @@
                     <a href="{{ route('listCreateCategory') }}"><i class="fa-solid fa-plus"></i> Criar Categories</a>
                 </div>
 
+                <a href="#collapseTag" data-bs-toggle="collapse"><i class="fa-solid fa-icons"></i> Tag</a>
+                <div id="collapseTag" class="collapse">
+                    <a href="{{ route('listAllTags') }}"><i class="fa-solid fa-icons"></i> Ver Tags</a>
+                </div>
+
                 <a href="#collapseTopicos" data-bs-toggle="collapse"><i class="fa-solid fa-arrow-trend-up"></i> Tópicos</a>
                 <div id="collapseTopicos" class="collapse">
                     <a href="{{ route('teste') }}"><i class="fa-solid fa-arrow-trend-up"></i> Ver Tópicos</a>
