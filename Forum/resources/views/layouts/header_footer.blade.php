@@ -109,7 +109,12 @@
 
                 </div>
 
-                <a href="{{ route('listUserById', [Auth::user()->id]) }}"><i class="fa fa-cog"></i> Configurações</a>
+                @if (Auth::check())
+                    <a href="{{ route('listUserById', [Auth::user()->id]) }}"><i class="fa fa-cog"></i> Configurações</a>
+                @else
+                    <a href="{{ route('login') }}"><i class="fa fa-sign-in"></i> Login</a>
+                @endif
+
             </div>
         </div>
     </div>

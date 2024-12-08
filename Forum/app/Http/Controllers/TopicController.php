@@ -37,31 +37,31 @@
             return view('topics.createTopics', ['categories' => $categories, 'tags' => $tags]);
         }
         
-        public function showTopics(Request $request)
-    {
+    //     public function showTopics(Request $request)
+    // {
 
     
-        // Incluir votos do usuário autenticado
-        $query->with(['post' => function ($query) {
-            $query->with('rates')->withCount([
-                'rates as likes_count' => function ($query) {
-                    $query->where('vote', 1);
-                },
-                'rates as dislikes_count' => function ($query) {
-                    $query->where('vote', 0);
-                },
-            ])->get()->each->setAppends(['user_vote']);
-        }]);
+    //     // Incluir votos do usuário autenticado
+    //     $query->with(['post' => function ($query) {
+    //         $query->with('rates')->withCount([
+    //             'rates as likes_count' => function ($query) {
+    //                 $query->where('vote', 1);
+    //             },
+    //             'rates as dislikes_count' => function ($query) {
+    //                 $query->where('vote', 0);
+    //             },
+    //         ])->get()->each->setAppends(['user_vote']);
+    //     }]);
     
 
     
-        $topics = $query->get();
-        $categories = Category::all();
-        $suggestedUsers = User::inRandomOrder()->take(5)->get();
-        $tags = Tag::all();
+    //     $topics = $query->get();
+    //     $categories = Category::all();
+    //     $suggestedUsers = User::inRandomOrder()->take(5)->get();
+    //     $tags = Tag::all();
     
-        return view('welcome', compact('topics', 'categories', 'suggestedUsers', 'tags'));
-    }
+    //     return view('welcome', compact('topics', 'categories', 'suggestedUsers', 'tags'));
+    // }
 
         public function store(Request $request)
     {

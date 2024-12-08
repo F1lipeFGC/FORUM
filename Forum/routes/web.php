@@ -7,6 +7,7 @@ use App\Http\Controllers\TopicController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 
 /*
 |---------------------------------------------------------------------------
@@ -35,6 +36,8 @@ Route::get('/topics/{id}/edit', [TopicController::class, 'editTopic'])->name('ed
 Route::get('/topics/{id}/delete', [TopicController::class, 'deleteTopic'])->name('deleteTopic');
 
 Route::middleware(['auth'])->group(function () {
+
+    
 
     // Rotas gerais
     Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
@@ -74,6 +77,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/categories/create', [CategoryController::class, 'listCreateCategory'])->name('listCreateCategory');
     Route::get('/categories/{id}', [CategoryController::class, 'listCategoryById'])->name('listCategoryById');
     Route::post('/categories/create', [CategoryController::class, 'createCategory'])->name('createCategory');
+
+    Route::post('/comments/create', [CommentController::class, 'createComment'])->name('CreateComment');
+    Route::get('/comments', [CommentController::class, 'listAllComments'])->name('ListAllComments');
+    Route::get('/comments/{id}', [CommentController::class, 'listCommentById'])->name('ListCommentById');
+    Route::put('/comments/{id}/update', [CommentController::class, 'updateComment'])->name('UpdateComment');
+    Route::get('/comments/{id}/edit', [CommentController::class, 'editComment'])->name('EditComment');
+    Route::delete('/comments/{id}/delete', [CommentController::class, 'deleteComment'])->name('DeleteComment');
 
     // Rotas da conta do usuário
     Route::get('/myaccount', [UserController::class, 'myAccount'])->name('myAccount');
